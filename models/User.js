@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 const moment = require('moment');
 
-const UserSchema = new Schema(
+const userSchema = new Schema(
   {
     userName: {
       type: String,
@@ -36,10 +36,10 @@ const UserSchema = new Schema(
   }
 );
 
-UserSchema.virtual('friendCount').get(function() {
+userSchema.virtual('friendCount').get(function() {
   return this.friends.reduce((total, friend) => total + friend.replies.length + 1, 0);
 });
 
-const User = model('User', UserSchema);
+const User = model('User', userSchema);
 
 module.exports = User;

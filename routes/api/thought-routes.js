@@ -4,7 +4,7 @@ const {
   getThoughtById,
 } = require('../../controllers/thought-controller');
 
-router.route('/:userId').post(addThought);
+router.route('/:thoughtId').post(getThought);
 
 router
   .route('/:userId/:thoughtId')
